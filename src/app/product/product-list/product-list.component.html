@@ -1,1 +1,58 @@
-<p>product-list works!</p>
+<div class="card">
+    <div class="card-header">
+        Lista de productos
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">
+                Filtrar por:
+            </div>
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="filter">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Filtro:</h3>
+            </div>
+        </div>
+        <!-- div.table-responsive>table.table>thead>tr>th*7 -->
+        <div class="table-responsive">
+            <table class="table" *ngIf="productos.length">
+                <thead>
+                    <tr>
+                        <th>
+                            <button (click)="mostrarImagen()"class="bth btn-primary"
+                            type="button">Imagen</button>
+                        </th>
+                        <th>Imagen</th>
+                        <th>Modelo</th>
+                        <th>Descripcion</th>
+                        <th>Año</th>
+                        <th>Precio</th>
+                        <th>Marca</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <!-- tbody>tr>td*7 -->
+                <tbody>
+                    <tr *ngFor="let producto of productos">
+                        <td *ngIf="muestraImg">
+                            <img [src]="producto.ImagenUrl"
+                            [title]="producto.Modelo"
+                            [style.width.px]="imageWidth"
+                            [style.margin.px]="imageMargin"
+                            >
+                            
+                        </td>
+                        <td>{{producto.Modelo}}</td>
+                        <td>{{producto.Descripcion}}</td>
+                        <td>{{producto.Year|date}}</td>
+                        <td>{{producto.Precio|currency}}</td>
+                        <td>{{producto.Marca}}</td>
+                        <td>{{producto.Color}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
