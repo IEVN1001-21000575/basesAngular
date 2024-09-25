@@ -1,0 +1,24 @@
+<div>
+    <h1>Calcular la distancia entre dos puntos</h1>
+    <form [formGroup]="formulario">
+      <div>
+        <label for="x1">Coordenada X1:</label>
+        <input formControlName="x1" type="number" >
+      </div>
+      <div>
+        <label for="y1">Coordenada Y1:</label>
+        <input formControlName="y1" type="number" >
+      </div>
+      <div>
+        <label for="x2">Coordenada X2:</label>
+        <input formControlName="x2" type="number">
+      </div>
+      <div>
+        <label for="y2">Coordenada Y2:</label>
+        <input formControlName="y2" type="number" >
+      </div>
+      <button type="button" (click)="calcularDistancia()">Calcular Distancia</button>
+    </form>
+    <h3>La distancia es: {{ distancia }}</h3>
+  </div>
+  
