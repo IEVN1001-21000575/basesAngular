@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="form-container">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" formControlName="nombre">
+
+      <label for="dia">Día:</label>
+      <input id="dia" type="number" formControlName="dia">
+
+      <label for="mes">Mes:</label>
+      <input id="mes" type="number" formControlName="mes">
+
+      <label for="anio">Año:</label>
+      <input id="anio" type="number" formControlName="anio">
+
+      <label for="sexo">Sexo:</label>
+      <select id="sexo" formControlName="sexo">
+        <option value="" disabled selected>Seleccione...</option>
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+      </select>
+      <br>
+      <br>
+      <button type="submit">Calcular Signo</button>
+    </form>
+  </div>
+
+  <div class="result-container">
+    <div *ngIf="mensaje">{{ mensaje }}</div>
+    <div *ngIf="signoZodiacal">
+      <h2>Tu signo zodiacal es: {{ signoZodiacal }}</h2>
+      <img *ngIf="muestraImg" [src]="imagenSigno" [style.width.px]="imageWidth" [style.margin.px]="imageMargin">
+      <button (click)="mostrarImagen()">Mostrar/Ocultar Imagen</button>
+    </div>
+  </div>
+</div>
